@@ -1,0 +1,52 @@
+interface ListingCardProps {
+  id: number;
+  title: string;
+  location: string;
+  price: string;
+  image: string;
+  verified?: boolean;
+}
+
+export default function ListingCard({
+  id,
+  title,
+  location,
+  price,
+  image,
+  verified,
+}: ListingCardProps) {
+  return (
+    <div className="overflow-hidden rounded-3xl bg-white shadow-lg">
+      <img
+        src={image}
+        alt={title}
+        className="h-64 w-full object-cover"
+      />
+
+      <div className="p-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-bold">{title}</h2>
+
+          {verified && (
+            <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">
+              Verified
+            </span>
+          )}
+        </div>
+
+        <p className="mt-2 text-gray-600">{location}</p>
+
+        <div className="mt-4 flex items-center justify-between">
+          <p className="text-xl font-semibold">{price}</p>
+
+          <a
+            href={`/listings/${id}`}
+            className="rounded-xl bg-black px-4 py-2 text-white"
+          >
+            View Details
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
