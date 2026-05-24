@@ -14,7 +14,7 @@ export const listings = [
     id: 2,
     title: "2 Bedroom Apartment",
     location: "East Legon, Accra",
-    price: "GHS 2500/month",
+    price: "GHS 2,500/month",
     image:
       "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop",
     verified: true,

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface ListingCardProps {
   id: number;
   title: string;
@@ -16,7 +18,7 @@ export default function ListingCard({
   verified,
 }: ListingCardProps) {
   return (
-    <div className="overflow-hidden rounded-3xl bg-white shadow-lg">
+    <div className="overflow-hidden rounded-3xl bg-white shadow-lg transition hover:-translate-y-1">
       <img
         src={image}
         alt={title}
@@ -25,10 +27,10 @@ export default function ListingCard({
 
       <div className="p-6">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">{title}</h2>
+          <h3 className="text-2xl font-bold">{title}</h3>
 
           {verified && (
-            <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">
+            <span className="rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-700">
               Verified
             </span>
           )}
@@ -39,12 +41,12 @@ export default function ListingCard({
         <div className="mt-4 flex items-center justify-between">
           <p className="text-xl font-semibold">{price}</p>
 
-          <a
+          <Link
             href={`/listings/${id}`}
-            className="rounded-xl bg-black px-4 py-2 text-white"
+            className="rounded-xl bg-black px-4 py-2 text-white hover:opacity-90"
           >
             View Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
